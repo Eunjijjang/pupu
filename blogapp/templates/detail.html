@@ -1,0 +1,12 @@
+{%extends 'base.html'%}
+{% block contents%}
+
+<h1>자세한 내용을 출력해주는 페이지입니다.</h1>
+<body>
+<p>{{ details.title }}</p>
+<p>{{ details.pub_date }}</p>
+<p>{{ details.body }} </p>
+
+<p><a href="{%url 'home' %}">home으로 가기</a></p>
+</body>
+{% endblock %}

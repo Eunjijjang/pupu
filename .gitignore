@@ -1,0 +1,12 @@
+### Django ###
+*.log
+### 개인 로그. 언제언제 찍혔는지 보이는거 ####
+*.pot
+*.pyc
+__pycache__/
+local_settings.py
+### 셋팅은  secret keys ####
+db.sqlite3 
+### 위에껀 회원정보라서 숨기기 ###
+media
+### 강아지 사진을 올렸어도 해킹한 사람이 이상한걸로 바꿀 수 있다.###

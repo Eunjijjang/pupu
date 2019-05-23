@@ -1,0 +1,42 @@
+{%extends 'base.html'%}
+{% block contents%}
+<body>
+  {% for blog in blogs.all %} <!-- 자른 식빵들 띄우기 -->
+  <br>
+  <div class="container">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">{{ blog.title }}</h5>
+        <h6 class="card-subtitle mb-2 text-muted">{{ blog.pub_date }}</h6>
+        <p class="card-text">{{ blog.summary }}</p>
+        <a href="{%url 'detail' blog.id%}" class="card-link">더보기</a>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+
+
+  <div class="container"></div>
+    <nav aria-label="Page navigation example">
+      <ul class="pagination">
+          {% if posts.has_previous %}
+         <li class="page-item"><a class="page-link" href="?pages=1">First</a></li>
+         <li class="page-item"><a class="page-link" href="?page={{posts.previous_page_number}}">Previous</a></li>
+        {% endif %}
+      
+      
+        <li class="page-item"><a class="page-link">{{posts.number}}</a></li> <!--링크를 왜 안넣어주냐 이거랑 밑에꺼는? 그냥 나타내주기만 해서 -->
+        <li class="page-item"><a class="page-link">{{posts.paginator.num_pages}}</a></li>
+
+        {% if posts.has_next %}
+        <li class="page-item"><a class="page-link" href="?page={{posts.next_page_number}}">Next</a></li>
+        <li class="page-item"><a class="page-link" href="?page={{posts.paginator.num_pages}}">Next</a></li>
+        {% endif %}
+      </div>
+    
+    </ul>
+  </nav>
+
+
+</body>
+{% endblock %}
