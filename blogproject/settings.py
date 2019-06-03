@@ -22,7 +22,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # SECURITY WARNING: keep the secret key used in production secret!
 # SECRET_KEY = '3=xxpaq7*(!220^q-kdi(vgna(jv_@)l46dp7ll52x0#e7ddrs'
 
-SECRET_KEY = os.environ.get('3=xxpaq7*(!220^q-kdi(vgna(jv_@)l46dp7ll52x0#e7ddr')
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', '3=xxpaq7*(!220^q-kdi(vgna(jv_@)l46dp7ll52x0#e7ddr')
 # 시크릿키를 코딩해주었다.
 DEBUG = bool(os.environ.get('DJANGO_DEBUG', True))
 #시크릿키는 되게 중요한거다! 누구나 들어올 수 있는 홈페이지에 key값이 들어간다면 그냥 털리는거다.
@@ -149,5 +149,5 @@ MEDIA_URL = '/media/'
 
 
 import dj_database_url
-db_from_env=dj_database_url.config(conn_max_age=500)
-DATABASES['default']. update(db_from_env)
+db_from_env = dj_database_url.config(conn_max_age=500)
+DATABASES['default'].update(db_from_env)
